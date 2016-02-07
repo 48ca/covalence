@@ -1,0 +1,294 @@
+/*http://meyerweb.com/eric/tools/css/reset/*/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,player,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+    font: inherit;
+    font-family: Roboto, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    border: 0
+}
+ul {
+    list-style: none;
+}
+.features {
+	margin-top: 15px;
+}
+h1 {
+    font-weight: bold;
+    font-size: 32px;
+    margin: 15px
+}
+h2 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 15px
+}
+body {
+    overflow-x: hidden;
+    width: 100%;
+    height: 100vh;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none
+}
+a {
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    text-decoration: none
+}
+.link {
+    color: #757575
+}
+.link:hover {
+    color: #1e88e5
+}
+.source {
+    color: #424242
+}
+.source:hover {
+    text-decoration: underline;
+    color: #000
+}
+button {
+    font-family: Roboto, Helvetica Neue, Helvetica, sans-serif;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    border: none;
+    outline: 0
+}
+.menu-buttons {
+    font-size: 14px;
+    width: 85px;
+    height: 100%;
+    background-color: #eee
+}
+.menu-buttons:hover {
+    background-color: #e0e0e0;
+    color: #1e88e5
+}
+.menu-buttons:active {
+    background-color: #bdbdbd
+}
+.menu-buttons2 {
+    font-size: 14px;
+    width: 100%;
+    height: 100px;
+    background-color: #eee
+}
+.menu-buttons2:hover {
+    background-color: #e0e0e0
+}
+.menu-buttons2:active {
+    background-color: #bdbdbd
+}
+.circle-button {
+    font-size: 16px;
+    width: 55px;
+    height: 55px;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #eee;
+    -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26);
+    -moz-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26);
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26)
+}
+.circle-button:hover {
+    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)
+}
+.basic-button {
+    width: 100px;
+    height: 50px;
+    margin-top: 15px;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #eee;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26)
+}
+.basic-button:hover {
+    background-color: #e0e0e0;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.basic-button:active {
+    background-color: #bdbdbd
+}
+#wrapper {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    width: 100%;
+    min-height: 100%;
+    background-color: #1e88e5
+}
+#sidebar-wrapper {
+    width: 200px;
+    float: left;
+    height: 100%;
+    display: block;
+    position: fixed;
+    left: -200px;
+    z-index: 101;
+    -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26);
+    -moz-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26);
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26) -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+    background-color: #eee;
+}
+#sidebar {
+    width: 200px;
+    height: 100%;
+    background-color: #eee;
+}
+#menu {
+    position: fixed;
+    width: 100%;
+    height: 48px;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    vertical-align: middle;
+    z-index: 100;
+    overflow: hidden;
+    background-color: #3F51B5;
+    -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26);
+    -moz-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26);
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26)
+}
+
+#search {
+	width: 30vw;
+	height: 40px;
+	margin-top: 4px;
+	margin-right: 4px;
+	float: right;
+	outline: none;
+	border: none;
+	border-radius: 20px;
+	background-color: #5C6BC0;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+#search:focus {
+	background-color: #fff;
+}
+
+#header-wrapper {
+    width: 100%;
+    min-height: 300px;
+    margin-top: 48px
+}
+#header {
+    width: 100%;
+    min-height: 300px
+}
+#banner {
+    position: fixed;
+    z-index: -5;
+    width: 100%;
+    height: 100%;
+    max-height: 800px;
+    background-image: url('../images/blurredsky.jpg');
+    background-repeat: no-repeat;
+    background-position: 0px -150px;
+    background-size: 200%
+}
+#content-wrapper {
+    width: 100%;
+    height: 100%;
+	margin-top: 48px;
+	margin-bottom: 150px;
+    text-align: center;
+    background-color: #1e88e5;
+    -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26);
+    -moz-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26);
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26)
+}
+#content {
+    width: 100%;
+	height: 100%;
+	position: relative;
+    display: block;
+}
+#player-wrapper {
+    position: absolute;
+    top: calc(100% - 150px);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background-color: #757575;
+    -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26);
+    -moz-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26);
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26)
+}
+#player {
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    text-align: center
+}
+#player > span {
+    display: inline-block;
+    color: #fff
+}
+#main-title {
+    font-size: 69px;
+    float: left;
+    width: 100%;
+    text-align: center
+}
+.icon {
+    float: left;
+    clear: none;
+    padding: 10px
+}
+.card {
+    position: relative;
+    overflow: hidden;
+    width: calc(100% - 75px);
+    max-width: 1920px;
+    margin: 15px;
+    padding: 15px;
+    cursor: pointer;
+	display: inline-block;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    background-color: #eee;
+    -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 0 6px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 6px rgba(0, 0, 0, .1)
+}
+.card:hover {
+    -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26);
+    -moz-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26);
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .16), 0 2px 5px 0 rgba(0, 0, 0, .26)
+}
