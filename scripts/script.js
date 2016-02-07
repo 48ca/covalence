@@ -3,12 +3,42 @@ var parent = document.getElementById("content"),
 	currentDir = "",
 	currentJSON = {},
     treeJSON = {};
+
+$.ajaxSetup({
+    async: false
+});
+var cards = [];
+var temp = document.createElement("div");
+temp.className = "card";
+var tempInner = document.createElement("div");
+tempInner.className = "card-icon";
+tempInner.style.backgroundImage = "url('icons/music.svg')";
+temp.appendChild(tempInner);
+temp.innerHTML = temp.innerHTML + "Music";
+var asdf = readConfig();
+console.log(asdf);
+temp.onclick = goDown(asdf[0]);
+cards.push(temp);
+parent.appendChild(temp);
+
+temp = document.createElement("div");
+temp.className = "card";
+tempInner = document.createElement("div");
+tempInner.className = "card-icon";
+tempInner.style.backgroundImage = "url('icons/camera.svg')";
+temp.appendChild(tempInner);
+temp.innerHTML = temp.innerHTML + "Photos"
+temp.onclick = goDown(readConfig()[1]);
+cards.push(temp);
+parent.appendChild(temp);
+
+
 function goHome() {
     currentDir = "";
     updateDivs();
 }
 function goDown(dir) {
-	currentDir += "/" + dir;
+	currentDir += dir;
     updateDivs();
 }
 
@@ -32,37 +62,35 @@ function updateDivs() {
         parent.appendChild(cards[0]);
         parent.appendChild(cards[1]);
     } else {
+        console.log(currentDir);
         getJSON();
+        cards = []
+        var arr = currentJSON["files"]
+        var temp2;
+        for(var i = 0; i < arr.length; i++) {
+                /*var temp = document.createElement("div");
+                temp.className = "card";
+                var tempInner = document.createElement("div");
+                tempInner.className = "card-icon";
+                tempInner.style.backgroundImage = "url('" + arr[i]+ "')";
+                temp.appendChild(tempInner);
+                temp.innerHTML = temp.innerHTML + arr[i];
+                temp.onclick = goDown(currentJSON);
+                cards.push(temp);
+                parent.appendChild(temp);
+                */
+                console.log(arr[i]);
+        }
     }
 }
 function getJSON() {
 	$.getJSON(currentDir + "/metadata.json", function(json) {
-		currentJSON = JSON.parse(json);
-		console.log(currentJSON);
+		currentJSON = json;
 	});
-	
 	//getAsText(currentDir + "/metadata.json");
 }
 function readConfig() {
 	var r = [];
-    /*
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", "covalence.conf", false);
-    rawFile.onreadystatechange = function () {
-        if(rawFile.readyState === 4) {
-            if(rawFile.status === 200 || rawFile.status == 0) {
-                var allText = rawFile.responseText.split("\n");
-                console.log(allText);
-               
-                for(var i = 0; i < temp.length; i++) {
-                    if(allText[i] != "Music" && allText[i] != "Photos" && allText[i] != "") {
-                        r.push(allText[i]);      
-                    }
-                }
-            }
-        }
-    }
-    rawFile.send(null);*/
     jQuery.ajax({
         url: "covalence.conf", 
         success: function(data) {
@@ -77,22 +105,23 @@ function readConfig() {
         },
         async: false
 	});
-    
     console.log(r);
     return r;
 }
-var cards = [];
-var temp = document.createElement("div");
-temp.className = "card";
-temp.innerHTML = "Music"
-temp.onclick = goDown(readConfig())[0];
-cards.push(temp);
-parent.appendChild(temp);
-temp = document.createElement("div");
-temp.className = "card";
-temp.innerHTML = "Photos"
-temp.onclick = goDown(readConfig())[1];
-cards.push(temp);
-parent.appendChild(temp);
-console.log("asdfasdf");
-content.appendChild(document.createElement("button"));
+
+
+var Module = class {
+    constructor(url) {
+        var temp = document.createElement("div");
+        temp.className = "card";
+        var tempInner = document.createElement("div");
+        tempInner.className = "card-icon";
+        tempInner.style.backgroundImage = "url('" + url + "')";
+        temp.appendChild(tempInner);
+        temp.innerHTML = temp.innerHTML + url;
+        temp.onclick = goDown(currentJSON);
+        cards.push(temp);
+        parent.appendChild(temp);
+
+    }
+}
