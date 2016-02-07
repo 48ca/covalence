@@ -74,15 +74,24 @@ function updateDivs() {
         getJSON();
         cards = []
         var arr = currentJSON["files"],
-            uri = "",
+            uri1 = "",
+            uri2 = "",
             hasDir = false,
-            loc = [];
+            loc = [],
+            img = [];
         for(var i = 0; i < arr.length; i++) {
-                loc = arr[i].split("/");
+                loc = arr[i]["path"].split("/");
+                img = arr[i]["image"];
+                if(!img) {
+                    img = [""];
+                } else {
+                    img = img.split("/");
+                }
                 for(var t = 0; t < loc.length; t++) { //Parse for local directory from full path
                     if(hasDir) {
                         for(var k = t; k < loc.length; k++) {
-                            uri += loc[k] + "/";
+                            uri1 += loc[k] + "/";
+                            uri2 += img[k] + "/";
                         }
                         break;
                     }
@@ -90,30 +99,33 @@ function updateDivs() {
                         hasDir = true;
                     }
                 }
-                uri = uri.substring(0, uri.length - 1);
+                uri1 = uri1.substring(0, uri1.length - 1);
+                uri2 = uri2.substring(0, uri2.length - 1);
                 var temp = document.createElement("div");
                 temp.className = "card";
                 var tempInner = document.createElement("div");
                 temp.appendChild(tempInner);
-                temp.style.backgroundImage = "url(" + arr[i]['image'] + ")";
-                if(uri.includes(".png") || uri.includes(".jpg") || uri.includes(".svg") || uri.includes(".gif")) {
+                if(uri1.includes(".png") || uri1.includes(".jpg") || uri1.includes(".svg") || uri1.includes(".gif")) {
+                    
+                    temp.style.backgroundImage = "url(" + uri1 + ")";
                     tempInner.className = "card-icon";
-                    tempInner.style.backgroundImage = "url('" + uri+ "')";
-                    console.log(uri);
-                    temp.dank = uri;
+                    tempInner.style.backgroundImage = "url('" + uri1 + "')";
+                    console.log(uri1);
+                    temp.dank = uri1;
                     temp.onclick = function() {expandImg(temp.dank)};
-                    temp.innerHTML = temp.innerHTML + uri.substring(7, uri.length - 4);
+                    temp.innerHTML = temp.innerHTML + uri1.substring(7, uri1.length - 4);
                 } else {
                     tempInner.className = "card-play";
-                    tempInner.style.backgroundImage = "url('icons/music.svg')";
+                    tempInner.style.backgroundImage = "url('" + uri2 + "')";
                     tempInner.style.backgroundSize = "50%";
-                    temp.dank = uri;
+                    temp.dank = uri2;
                     temp.onclick = function() {playSong(temp.dank)};
-                    temp.innerHTML = temp.innerHTML + uri.substring(6, uri.length - 4);
+                    temp.innerHTML = temp.innerHTML + uri2.substring(6, uri2.length - 4);
                 }
                 cards.push(temp);
                 parent.appendChild(temp);
-                uri = "";
+                uri1 = "";
+                uri2 = "";
                 hasDir = false;
         }
     }
