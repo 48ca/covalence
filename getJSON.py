@@ -28,32 +28,32 @@ def generate(path,mode):
 		
 
 def main():
-	# try:
-	data = open('covalence.conf','r').read().split()
-	# if data[0] != "Music":
-		# raise Exception
-	index = 1
-	while data[index] != "Photos":
-		line = data[index]
-		p = os.path.abspath(line)
-		with open(p + '/metadata.json','w') as f:
-			arr = generate(p,'music')
-			if arr:
-				f.write(json.dumps({'files':arr}))
-				print("Created metadata.json for " + p)
+	try:
+		data = open('covalence.conf','r').read().split()
+		if data[0] != "Music":
+			raise Exception
+		index = 1
+		while data[index] != "Photos":
+			line = data[index]
+			p = os.path.abspath(line)
+			with open(p + '/metadata.json','w') as f:
+				arr = generate(p,'music')
+				if arr:
+					f.write(json.dumps({'files':arr}))
+					print("Created metadata.json for " + p)
+			index += 1
+		l = len(data)
 		index += 1
-	l = len(data)
-	index += 1
-	while index < l:
-		line = data[index]
-		p = os.path.abspath(line)
-		with open(p + '/metadata.json','w') as f:
-			arr = generate(p,'photos')
-			if arr:
-				f.write(json.dumps({'files':arr}))
-				print("Created metadata.json for " + p)
-		index += 1
-	# except:
-		# print("Malformed covalence.conf")
+		while index < l:
+			line = data[index]
+			p = os.path.abspath(line)
+			with open(p + '/metadata.json','w') as f:
+				arr = generate(p,'photos')
+				if arr:
+					f.write(json.dumps({'files':arr}))
+					print("Created metadata.json for " + p)
+			index += 1
+	except:
+		print("Malformed covalence.conf")
 
 main()

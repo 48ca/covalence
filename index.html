@@ -6,7 +6,6 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="icons/favicon.ico" rel="icon" type="image/ico">
     <link href="main.css" rel="stylesheet" />
-	
 </head>
 <title>
 </title>
@@ -22,15 +21,9 @@
         </div>
         <div id="content-wrapper">
 			<div id="content">
-			<?php
-				$filename = "music/metadata.json";
-				$file = fopen($filename,"r") or die("Unable to open file");
-				$json = json_decode(fread($file,filesize($filename)),true);
-				foreach($json['files'] as $audio) {
-					echo "<audio controls><source src='" . preg_replace("/^\/srv\/http/",'',$audio) . "'></audio>";
-				}
-				fclose($file);
-			?>
+				<div class="music">
+					<p>Music</p>
+						<div class='card'><audio><source src='/c/music/Episode 3 - 23.mp3'></audio></div><div class='card'><audio><source src='/c/music/03 - Kids Will Be Skeletons.mp3'></audio></div><div class='card'><audio><source src='/c/music/Kate.mp3'></audio></div><div class='card'><audio><source src='/c/music/03 - To All Of You.mp3'></audio></div><div class='card'><audio><source src='/c/music/Max & Chloe.mp3'></audio></div><div class='card'><audio><source src='/c/music/The Storm.mp3'></audio></div><div class='card'><audio><source src='/c/music/Night Walk.mp3'></audio></div><div class='card'><audio><source src='/c/music/Timelines.mp3'></audio></div><div class='card'><audio><source src='/c/music/Timeless.mp3'></audio></div><div class='card'><audio><source src='/c/music/Blackwell Academy.mp3'></audio></div><div class='card'><audio><source src='/c/music/02 - Obstacles.mp3'></audio></div><div class='card'><audio><source src='/c/music/Golden Hour.mp3'></audio></div><div class='card'><audio><source src='/c/music/SOMEMORE/Golden Hour.mp3'></audio></div>				</div>
 			</div>
 		</div>
     	<div id="player-wrapper">

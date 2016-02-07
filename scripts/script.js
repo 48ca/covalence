@@ -31,6 +31,15 @@ function readConfig() {
 		console.log(data);
 	});
 }
-cards.push(document.createElement("div"));
+var temp = document.createElement("div");
+temp.className = "card";
+temp.innerHTML = "Music"
+cards.push(temp);
+parent.appendChild(temp);
+temp = document.createElement("div");
+temp.className = "card";
+temp.innerHTML = "Photos"
+cards.push(temp);
+parent.appendChild(temp);
+console.log("asdfasdf");
 content.appendChild(document.createElement("button"));
-
